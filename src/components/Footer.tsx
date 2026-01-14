@@ -31,29 +31,12 @@ export default function Footer() {
           <p className="text-sm font-semibold">{siteData.footer.inquiries.email}</p>
           <p className="text-sm font-semibold mt-2">{siteData.footer.inquiries.phone}</p>
         </div>
-        <div>
-          <h3 className="text-[10px] font-bold tracking-widest uppercase text-primary/40 dark:text-white/40 mb-4">
-            Garden
-          </h3>
-          <p className="text-sm font-semibold">
-            {siteData.footer.garden.name}
-            <br />
-            {siteData.footer.garden.address}
-            <br />
-            {siteData.footer.garden.postcode}
-          </p>
-        </div>
+        
       </footer>
       <div className="mt-20 pb-10 flex justify-between items-center">
         <p className="text-[10px] uppercase font-bold tracking-tighter opacity-30">
           {siteData.footer.copyright}
         </p>
-        <div className="flex items-center space-x-4">
-          <div className="w-2 h-2 rounded-full bg-sage-green"></div>
-          <span className="text-[10px] uppercase font-bold tracking-tighter opacity-50">
-            {siteData.footer.status}
-          </span>
-        </div>
       </div>
     </>
   );

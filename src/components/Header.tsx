@@ -21,15 +21,6 @@ export default function Header() {
         <span className="text-terracotta">.</span>
       </div>
       <nav className="hidden md:flex items-center space-x-10 text-sm font-medium tracking-widest uppercase">
-        {siteData.navigation.map((link) => (
-          <Link
-            key={link.label}
-            href={link.href}
-            className="hover:text-terracotta transition-colors"
-          >
-            {link.label}
-          </Link>
-        ))}
         <button
           className="p-2 bg-moss-green text-white rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -41,12 +32,12 @@ export default function Header() {
             <Moon className="w-4 h-4" />
           )}
         </button>
-        <Link
+        {/* <Link
           href={siteData.cta.header.href}
           className="bg-primary text-white dark:bg-sage-green dark:text-primary px-6 py-2.5 rounded-full text-xs font-bold hover:scale-105 transition-transform"
         >
           {siteData.cta.header.text}
-        </Link>
+        </Link> */}
       </nav>
     </header>
   );

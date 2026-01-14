@@ -35,7 +35,7 @@ export default function ProjectGrid() {
   return (
     <div ref={gridRef} className="masonry-grid md:grid-cols-3 grid-cols-1">
       {siteData.projects.map((project) => (
-        <div key={project.id} className="project-card">
+        <div key={project.id} className="project-card w-full">
           <ProjectCard project={project} />
         </div>
       ))}

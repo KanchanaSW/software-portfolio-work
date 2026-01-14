@@ -35,9 +35,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     return '';
   };
 
-  const aspectClass = project.aspectRatio === 'square' ? 'aspect-square' : 'aspect-[4/5]';
-  const colSpanClass = project.colSpan ? `col-span-1 md:col-span-${project.colSpan}` : 'col-span-1';
-  const minHeightClass = project.minHeight ? `min-h-[${project.minHeight}]` : '';
+  const aspectClass = 'aspect-square';
+  const colSpanClass = 'col-span-1';
+  const minHeightClass = '';
 
   // SYMBIOSIS_OS card
   if (project.id === 'symbiosis-os') {
