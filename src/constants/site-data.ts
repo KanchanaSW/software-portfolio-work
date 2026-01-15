@@ -21,6 +21,8 @@ export interface ProjectCard {
   textContent?: string[];
   iconName?: string;
   iconNames?: string[];
+  githubUrl?: string | null;
+  liveDemoUrl?: string;
 }
 
 export interface NavigationLink {
@@ -60,6 +62,8 @@ export const siteData = {
       type: 'image',
       backgroundColor: 'sage-green/20',
       aspectRatio: '4/5',
+      githubUrl: 'https://example.com',
+      liveDemoUrl: 'https://example.com',
     },
     {
       id: 'symbiosis-os',
@@ -71,6 +75,8 @@ export const siteData = {
       type: 'image',
       backgroundColor: 'sage-green/20',
       aspectRatio: '4/5',
+      githubUrl: 'https://example.com',
+      liveDemoUrl: 'https://example.com',
     },
     {
       id: 'symbiosis-os',
@@ -82,6 +88,8 @@ export const siteData = {
       type: 'image',
       backgroundColor: 'sage-green/20',
       aspectRatio: '4/5',
+      githubUrl: 'https://example.com',
+      liveDemoUrl: 'https://example.com',
     },
     {
       id: 'symbiosis-os',
@@ -93,6 +101,8 @@ export const siteData = {
       type: 'image',
       backgroundColor: 'sage-green/20',
       aspectRatio: '4/5',
+      githubUrl: 'https://example.com',
+      liveDemoUrl: 'https://example.com',
     },
     {
       id: 'symbiosis-os',
@@ -104,6 +114,8 @@ export const siteData = {
       type: 'image',
       backgroundColor: 'sage-green/20',
       aspectRatio: '4/5',
+      githubUrl: 'https://example.com',
+      liveDemoUrl: 'https://example.com',
     },
     {
       id: 'symbiosis-os',
@@ -115,6 +127,8 @@ export const siteData = {
       type: 'image',
       backgroundColor: 'sage-green/20',
       aspectRatio: '4/5',
+      githubUrl: 'https://example.com',
+      liveDemoUrl: 'https://example.com',
     },
   ] as ProjectCard[],
   footer: {

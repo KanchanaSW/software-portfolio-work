@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Leaf, Users, Droplets, Sprout } from 'lucide-react';
+import { Leaf, Users, Droplets, Sprout, Github, ExternalLink } from 'lucide-react';
 import { ProjectCard as ProjectCardType } from '@/constants/site-data';
 import Link from 'next/link';
 
@@ -61,7 +61,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {project.title}
           </h3>
           {project.tags && (
-            <div className="flex space-x-2">
+            <div className="flex flex-wrap gap-2 mb-4">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
@@ -72,6 +72,30 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               ))}
             </div>
           )}
+          <div className="flex gap-2 mt-4">
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 dark:bg-white/10 hover:bg-primary/20 dark:hover:bg-white/20 border border-primary/20 dark:border-white/20 rounded text-xs font-medium text-primary dark:text-white transition-colors"
+              >
+                <Github className="w-3.5 h-3.5" />
+                GitHub
+              </a>
+            )}
+            {project.liveDemoUrl && (
+              <a
+                href={project.liveDemoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 dark:bg-white/10 hover:bg-primary/20 dark:hover:bg-white/20 border border-primary/20 dark:border-white/20 rounded text-xs font-medium text-primary dark:text-white transition-colors"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                Live Demo
+              </a>
+            )}
+          </div>
         </div>
       </div>
     );
