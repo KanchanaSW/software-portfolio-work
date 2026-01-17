@@ -23,8 +23,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Bio_Logic | Natural & Organic Tech Portfolio',
-  description: 'Designing digital ecosystems with a focus on ecological sustainability and human dignity.',
+  title: 'Kanchana Walagambahu | Portfolio',
+  description: 'Software Engineer - Frontend',
 };
 
 export default function RootLayout({
