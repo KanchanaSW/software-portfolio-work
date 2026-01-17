@@ -130,6 +130,7 @@ export const siteData = {
       githubUrl: 'https://example.com',
       liveDemoUrl: 'https://example.com',
     },
+
   ] as ProjectCard[],
   footer: {
     brandName: 'Kanchana',

@@ -36,6 +36,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${archivo.variable} ${inter.variable} ${jetbrainsMono.variable} bg-background-light dark:bg-background-dark text-primary dark:text-gray-200 font-sans transition-colors duration-300`}
+        suppressHydrationWarning
       >
         <ThemeProvider>
           {children}

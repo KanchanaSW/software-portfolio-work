@@ -51,6 +51,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             alt={project.imageAlt || ''}
             fill
             className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500 mix-blend-multiply dark:mix-blend-normal"
+            unoptimized
           />
         )}
         <div className="relative z-10">
@@ -233,6 +234,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             alt={project.imageAlt || ''}
             fill
             className="w-full h-full object-cover rounded-lg"
+            unoptimized
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-8 flex flex-col justify-end">
@@ -258,6 +260,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               alt={project.imageAlt || ''}
               fill
               className="w-full h-full object-cover rounded-lg shadow-2xl transition-transform duration-700 group-hover:scale-105"
+              unoptimized
             />
           )}
         </div>
@@ -326,6 +329,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               width={192}
               height={400}
               className="w-48 h-auto rounded-3xl shadow-xl mb-8 transform -rotate-3 hover:rotate-0 transition-transform duration-500"
+              unoptimized
             />
           )}
           <h4 className="text-2xl font-display font-bold uppercase tracking-tight text-primary dark:text-white">
@@ -353,6 +357,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             alt={project.imageAlt || ''}
             fill
             className="w-full h-full object-cover opacity-40"
+            unoptimized
           />
         )}
         <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
@@ -372,6 +377,92 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     );
   }
 
-  // Default fallback
-  return null;
+  // Default generic card for any project
+  return (
+    <div
+      className={`group overflow-hidden rounded-xl bg-gray-50 dark:bg-charcoal flex flex-col border border-primary/5 dark:border-white/5 shadow-sm ${colSpanClass}`}
+    >
+      {/* Image Section */}
+      {project.imageUrl ? (
+        <div className="relative w-full aspect-video overflow-hidden bg-gray-100 dark:bg-gray-800">
+          <img
+            src={project.imageUrl}
+            alt={project.imageAlt || project.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            onError={(e) => {
+              console.error('❌ Image failed to load for project:', project.id);
+              console.error('Title:', project.title);
+              console.error('Image URL:', project.imageUrl);
+              console.error('Error event:', e);
+              // Show a placeholder
+              const target = e.target as HTMLImageElement;
+              if (target) {
+                target.style.display = 'none';
+              }
+            }}
+            onLoad={() => {
+              console.log('✅ Image loaded successfully:', project.id, project.imageUrl);
+            }}
+          />
+        </div>
+      ) : (
+        <div className="relative w-full aspect-video bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+          <p className="text-xs text-gray-400">No image URL</p>
+        </div>
+      )}
+      
+      {/* Text Content Section */}
+      <div className="p-8 flex flex-col flex-1">
+        {project.subtitle && (
+          <p className="text-[10px] font-bold tracking-widest uppercase mb-2 text-terracotta">
+            {project.subtitle}
+          </p>
+        )}
+        <h3 className="text-3xl font-display font-bold leading-none mb-4 text-primary dark:text-white">
+          {project.title}
+        </h3>
+        {project.description && (
+          <p className="text-sm text-primary/70 dark:text-white/70 mb-4">
+            {project.description}
+          </p>
+        )}
+        {project.tags && project.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-[9px] border border-primary/20 dark:border-white/20 px-2 py-0.5 rounded"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+        <div className="flex gap-2 mt-auto">
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 dark:bg-white/10 hover:bg-primary/20 dark:hover:bg-white/20 border border-primary/20 dark:border-white/20 rounded text-xs font-medium text-primary dark:text-white transition-colors"
+            >
+              <Github className="w-3.5 h-3.5" />
+              GitHub
+            </a>
+          )}
+          {project.liveDemoUrl && (
+            <a
+              href={project.liveDemoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 dark:bg-white/10 hover:bg-primary/20 dark:hover:bg-white/20 border border-primary/20 dark:border-white/20 rounded text-xs font-medium text-primary dark:text-white transition-colors"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              Live Demo
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 }
